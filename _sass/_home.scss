@@ -1,18 +1,27 @@
 .home {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+
+    @include bp(md) {
+        background-color: black;
+    }
 
     .card {
         width: 50rem;
         height: 33rem;
         color: white;
         background-color: black;
-        border: 1px solid transparent;
         border-radius: 3rem;
         padding: 2rem 4rem;
+
+        @include bp(md) {
+            width: 100vw;
+            height: auto;
+            border-radius: 0;
+        }
     }
 }
 
@@ -24,14 +33,22 @@
     .hero-text {
         font-size: 3rem;
         line-height: 1.2;
+
+        @include bp(md) {
+            font-weight: bold;
+            color: #fec5bb;
+        }
     }
 
     .hero-photo {
         width: 200px;
         height: 200px;
-        border: inset 1px solid transparent;
         border-radius: 50%;
         background-color: #fec5bb;
+
+        @include bp(md) {
+            display: none;
+        }
     }
 }
 
@@ -41,6 +58,10 @@
     row-gap: 2rem;
     column-gap: 2rem;
     margin-top: 4rem;
+
+    @include bp(sm) {
+        grid-template-columns: 1fr;
+    }
 
     .content-title {
         font-size: 0.9rem;
