@@ -20,6 +20,7 @@ const postcssFilter = (css, done) => {
 
 module.exports = function (config) {
     config.addPassthroughCopy("favicon.svg");
+    config.addPassthroughCopy("CNAME");
     config.setServerPassthroughCopyBehavior("passthrough");
 
     config.addWatchTarget("./_includes/css/tailwind.css");
