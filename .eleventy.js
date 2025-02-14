@@ -1,28 +1,27 @@
-const tailwind = require("tailwindcss");
-const postcss = require("postcss");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-const postcssFilter = (css, done) => {
-    postcss([
-        tailwind(require("./tailwind.config")),
-        autoprefixer(),
-        cssnano({ preset: "default" }),
-    ])
-        .process(css, {
-            from: "./_includes/css/tailwind.css",
-        })
-        .then(
-            (result) => done(null, result.css),
-            (error) => done(error, null)
-        );
-};
-
-module.exports = function (config) {
-    config.addPassthroughCopy("favicon.svg");
-    config.addPassthroughCopy("CNAME");
-    config.setServerPassthroughCopyBehavior("passthrough");
-
-    config.addWatchTarget("./_includes/css/tailwind.css");
-    config.addNunjucksAsyncFilter("postcss", postcssFilter);
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPassthroughCopy("src/assets/css/syntax.css");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/super-tiny-icons/images/svg/linkedin.svg":
+      "assets/images/linkedin.svg",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/super-tiny-icons/images/svg/github.svg":
+      "assets/images/github.svg",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/super-tiny-icons/images/svg/codepen.svg":
+      "assets/images/codepen.svg",
+  });
+  return {
+    dir: {
+      input: "src",
+      data: "_data",
+      includes: "_includes",
+      layouts: "_layouts",
+    },
+  };
 };

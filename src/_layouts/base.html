@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | url }}" />
+  </head>
+  <body class="flex flex-col min-h-screen px-8">
+    <header>{% include "partials/_navigation.html" %}</header>
+    <main class="container mx-auto flex-auto flex">
+      <div class="w-full">{{ content }}</div>
+    </main>
+    {% include "partials/_footer.html" %}
+  </body>
+</html>

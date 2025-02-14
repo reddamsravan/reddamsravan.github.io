@@ -1,0 +1,11 @@
+<nav class="container mx-auto py-4">
+  <h2 class="sr-only">Main navigation</h2>
+  <ul class="flex gap-2">
+    <li class="mr-auto"><a href="/" title="Home">👋</a></li>
+    {% for page in collections.page %}
+    <li>
+      <a href="{{ page.url }}">{{ page.data.navigation_label }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
