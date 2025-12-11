@@ -8,6 +8,7 @@
   --dark-text: #e8e8e0;
   --sun: #ff8a32;
   --moon: #38b764;
+  --blue: #0016ff;
 }
 
 body {
@@ -16,11 +17,20 @@ body {
   background-color: var(--light);
   color: var(--dark);
   min-height: 100vh;
+  font-size: 1.2rem;
 }
 
 body.dark {
   background-color: var(--dark);
   color: var(--dark-text);
+}
+
+header {
+  margin-top: 4rem;
+}
+
+main {
+  margin-top: 2rem;
 }
 
 footer {
@@ -42,18 +52,53 @@ footer {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 3rem;
 }
 
-.title, .intro {
-  font-size: 3rem;
+.container + .container {
+  margin-top: 3.5rem;
 }
 
-@media screen and (max-width: 768px) {
-  .title, .intro {
-    font-size: 2rem;
-    line-height: 1.4;
-  }
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+.dark h1 {
+  color: var(--moon);
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+.dark h2 {
+  color: var(--moon);
+}
+h2 + div {
+  margin-top: 1rem;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h3 + li {
+  margin-top: 0.5rem;
+}
+
+p + p {
+  margin-top: 0.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1rem;
+}
+
+.intro {
+  font-size: 1.8rem;
 }
 
 .theme-switch {
@@ -104,4 +149,46 @@ footer {
 .moon {
   width: 24px;
   height: 24px;
+}
+
+.contact {
+  margin-top: 8rem;
+}
+
+a {
+  color: var(--blue);
+}
+
+.dark a {
+  color: var(--moon);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  header {
+    margin-top: 1.2rem;
+  }
+
+  main {
+    margin-top: 1rem;
+  }
+
+  .container + .container {
+    margin-top: 1.6rem;
+  }
+
+  .contact {
+    margin-top: 0;
+  }
+
+  .theme-switch {
+    padding: 0
+  }
 }
