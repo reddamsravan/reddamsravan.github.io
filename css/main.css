@@ -7,7 +7,7 @@
   --dark: #1a1c2c;
   --dark-text: #e8e8e0;
   --sun: #ff8a32;
-  --moon: #38b764;
+  --moon: #00abff;
   --blue: #0016ff;
 }
 
@@ -84,7 +84,7 @@ h3 {
 }
 
 h3 + li {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 p + p {
@@ -93,7 +93,7 @@ p + p {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(2, 1fr); 
     gap: 1rem;
 }
 
@@ -152,7 +152,7 @@ p + p {
 }
 
 .contact {
-  margin-top: 8rem;
+  margin-top: 4rem;
 }
 
 a {
@@ -163,13 +163,25 @@ a {
   color: var(--moon);
 }
 
-@media screen and (max-width: 768px) {
+.skills li {
+  display: inline-block;
+}
+
+.skills li::after {
+  content: ','
+}
+
+.skills li:last-child::after {
+  content: '.'
+}
+
+@media screen and (max-width: 1024px) {
   .container {
     padding: 0 1.5rem;
   }
 
   .grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(1, 1fr); 
   }
 
   header {
@@ -184,11 +196,7 @@ a {
     margin-top: 1.6rem;
   }
 
-  .contact {
-    margin-top: 0;
-  }
-
   .theme-switch {
-    padding: 0
+    padding: 0;
   }
 }
